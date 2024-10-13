@@ -19,7 +19,6 @@ browser.find_element(By.ID, 'login-password').send_keys(os.getenv("PASSWORD"))
 
 browser.find_element(By.ID, 'login-button').click()
 
-
 menu_group_button =  "/html/body/div[1]/div[1]/div/div[2]/div/div[4]/div[3]/a[3]"
 
 WebDriverWait(browser, 5).until(expected_conditions.element_to_be_clickable((By.XPATH, menu_group_button))).click()
@@ -33,5 +32,3 @@ users = ["//*[@id=""__next""]/main/div[2]/div/section/div[1]/ul/li[2]/a",
          "//*[@id=""__next""]/main/div[2]/div/section/div[1]/ul/li[4]/a",
          "//*[@id=""__next""]/main/div[2]/div/section/div[1]/ul/li[5]/a",
          "//*[@id=""__next""]/main/div[2]/div/section/div[1]/ul/li[6]/a"]
-
-
