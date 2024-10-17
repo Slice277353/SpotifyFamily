@@ -5,16 +5,20 @@ import sys
 
 from aiogram import Bot, Dispatcher, html, types
 from aiogram.client.default import DefaultBotProperties
+from aiogram.utils.i18n import gettext as _, I18n, ConstI18nMiddleware
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message
 from dotenv import load_dotenv
 
-# TODO: Implement aiogram_i18n
-
-load_dotenv() # TODO: Implement loading only of Telegram Bot Token
+load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 dp = Dispatcher()
+
+i18n = I18n(path="locales", default_locale='en', domain="messages")
+i18n_middleware = ConstI18nMiddleware(i18n=i18n, locale='en')
+
+dp.message.middleware(i18n_middleware)
 
 @dp.message(CommandStart())
 async def command_start_handler(message: Message) -> None:
@@ -27,32 +31,24 @@ async def command_start_handler(message: Message) -> None:
     keyboard = types.ReplyKeyboardMarkup(
         keyboard=kb,
         resize_keyboard=True,
-        input_field_placeholder="Выберите язык",
     )
-    await message.answer(f"Hello, {message.from_user.first_name}!\n\nChoose your language:", reply_markup=keyboard)
+    await message.answer(_("Hello, {name}!\n\nChoose your language:").format(name=message.from_user.full_name), reply_markup=keyboard)
 
-@dp.message(Command("language"))
-async def commmand_change_language(message: Message) -> None:
-    kb = [
-        [
-            types.KeyboardButton(text="Русский 🇷🇺"),
-            types.KeyboardButton(text="English 🇬🇧")
-        ],
-    ]
-    keyboard = types.ReplyKeyboardMarkup(
-        keyboard=kb,
-        resize_keyboard=True,
-        input_field_placeholder="Выберите язык",
-    )
-    await message.answer(f"Choose your language:", reply_markup=keyboard)
-    
+@dp.message(lambda message: message.text in ['English 🇬🇧', 'Русский 🇷🇺'])
+async def set_language(message: Message) -> None:
+    if message.text == "English 🇬🇧":
+        i18n.current_locale = 'en'
+        await message.answer(_("Language set to English."))
+    elif message.text == "Русский 🇷🇺":
+        i18n.current_locale = 'ru'
+        await message.answer(_("Language set to Russian."))
+
 @dp.message(Command("send"))
 async def command_send_handler(message: Message) -> None:
-    await message.answer(f"Hello, {message.from_user.first_name}!")
+    await message.answer(_("Hello, {name}!").format(name=message.from_user.first_name))
 
 async def main() -> None:
     bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
-
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
