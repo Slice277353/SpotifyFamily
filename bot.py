@@ -3,7 +3,7 @@ import logging
 import os
 import sys
 
-from aiogram import Bot, Dispatcher, html, types
+from aiogram import Bot, Dispatcher, types
 from aiogram.client.default import DefaultBotProperties
 from aiogram.utils.i18n import gettext as _, I18n, ConstI18nMiddleware
 from aiogram.enums import ParseMode
