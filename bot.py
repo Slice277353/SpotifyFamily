@@ -47,7 +47,7 @@ async def command_set_language(message: Message) -> None:
         resize_keyboard=True,
     )
     await message.answer(_("Choose your language:"))
-    await set_language(message)
+    await set_language(message, reply_markup=keyboard)
 
 @dp.message(lambda message: message.text in ['English 🇬🇧', 'Русский 🇷🇺'])
 async def set_language(message: Message) -> None:
