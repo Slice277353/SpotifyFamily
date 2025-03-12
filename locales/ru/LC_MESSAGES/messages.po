@@ -43,5 +43,5 @@ msgstr "Язык сменен на русский"
 #: bot.py:63
 #, python-brace-format
 msgid "Hello, {name}!"
-msgstr "Привет, {name}"
+msgstr "Привет, {name}!"
 
