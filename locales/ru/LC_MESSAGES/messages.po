@@ -1,14 +1,14 @@
 # Russian translations for PROJECT.
-# Copyright (C) 2024 ORGANIZATION
+# Copyright (C) 2025 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-03-09 20:52+0200\n"
-"PO-Revision-Date: 2024-10-17 23:02+0300\n"
+"POT-Creation-Date: 2025-03-12 21:50+0200\n"
+"PO-Revision-Date: 2025-03-12 21:53+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -19,29 +19,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: bot.py:35
+#: bot.py:74
 #, python-brace-format
-msgid ""
-"Hello, {name}!\n"
-"\n"
-"Choose your language:"
-msgstr "Выберите язык:"
+msgid "Hello, {name}! Choose your language:"
+msgstr ""
 
-#: bot.py:49
-#, fuzzy, python-brace-format
-msgid "Choose your language:"
-msgstr "Выберите язык:"
-
-#: bot.py:56
-msgid "Language set to English."
-msgstr "Язык сменен на английский"
-
-#: bot.py:59
-msgid "Language set to Russian."
+#: bot.py:87
+#, python-brace-format
+msgid "Language set to {lang}."
 msgstr "Язык сменен на русский"
 
-#: bot.py:63
+#: bot.py:92
+msgid "Please send your billing screenshot."
+msgstr "Пожалуйста, отправьте квитанцию"
+
+#: bot.py:113
 #, python-brace-format
-msgid "Hello, {name}!"
-msgstr "Привет, {name}!"
+msgid "Received your receipt, {name}. Your current debt: ${debt}"
+msgstr "Получил вашу квитанцию, {name}. Ваш текущий долг: ${debt}"
+
+#: bot.py:124
+#, python-brace-format
+msgid "Your current debt: ${debt}"
+msgstr "Ваш текущий долг: ${debt}"
+
+#: bot.py:126
+msgid "No data found."
+msgstr "Не найдено данных."
+
+#: bot.py:137
+msgid "User stats:\n"
+msgstr "Статистика:\n"
+
+#: bot.py:145
+msgid "Usage: /update_debt <user_id> <amount>"
+msgstr ""
+
+#: bot.py:153
+#, python-brace-format
+msgid "Updated debt for user {uid} by ${amt}"
+msgstr "Обновлен долг {uid} на ${amt}"
+
+#: bot.py:166
+#, python-brace-format
+msgid ""
+"Reminder: Your current debt is ${debt}. Please pay before the billing "
+"date."
+msgstr "${debt} ваш текущий долг. Пожалуйста заплатите перед расчетным днем."
+
+#: bot.py:169
+#, python-brace-format
+msgid "Thank you for your payment, {name}. Your debt is cleared."
+msgstr "Спасибо за оплату, {name}. Ваш долг погашен."
 

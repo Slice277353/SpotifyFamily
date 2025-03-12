@@ -1,15 +1,14 @@
-# Translations template for Bot Super Project.
-# Copyright (C) 2025 John Doe
-# This file is distributed under the same license as the Bot Super Project
-# project.
+# Translations template for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Bot Super Project VERSION\n"
-"Report-Msgid-Bugs-To: john@doe-email.com\n"
-"POT-Creation-Date: 2025-03-09 20:52+0200\n"
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-03-12 21:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,28 +17,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: bot.py:35
+#: bot.py:74
+#, python-brace-format
+msgid "Hello, {name}! Choose your language:"
+msgstr ""
+
+#: bot.py:87
+#, python-brace-format
+msgid "Language set to {lang}."
+msgstr ""
+
+#: bot.py:92
+msgid "Please send your billing screenshot."
+msgstr ""
+
+#: bot.py:113
+#, python-brace-format
+msgid "Received your receipt, {name}. Your current debt: ${debt}"
+msgstr ""
+
+#: bot.py:124
+#, python-brace-format
+msgid "Your current debt: ${debt}"
+msgstr ""
+
+#: bot.py:126
+msgid "No data found."
+msgstr ""
+
+#: bot.py:137
+msgid "User stats:\n"
+msgstr ""
+
+#: bot.py:145
+msgid "Usage: /update_debt <user_id> <amount>"
+msgstr ""
+
+#: bot.py:153
+#, python-brace-format
+msgid "Updated debt for user {uid} by ${amt}"
+msgstr ""
+
+#: bot.py:166
 #, python-brace-format
 msgid ""
-"Hello, {name}!\n"
-"\n"
-"Choose your language:"
+"Reminder: Your current debt is ${debt}. Please pay before the billing "
+"date."
 msgstr ""
 
-#: bot.py:49
-msgid "Choose your language:"
-msgstr ""
-
-#: bot.py:56
-msgid "Language set to English."
-msgstr ""
-
-#: bot.py:59
-msgid "Language set to Russian."
-msgstr ""
-
-#: bot.py:63
+#: bot.py:169
 #, python-brace-format
-msgid "Hello, {name}!"
+msgid "Thank you for your payment, {name}. Your debt is cleared."
 msgstr ""
 
