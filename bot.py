@@ -2,10 +2,9 @@ import asyncio
 import logging
 import os
 import sys
-import json
 import sqlite3
 from datetime import datetime, timedelta
-from aiogram import Bot, Dispatcher, types
+from aiogram import Bot, Dispatcher, types, F
 from aiogram.client.default import DefaultBotProperties
 from aiogram.utils.i18n import I18n
 from aiogram.enums import ParseMode
@@ -13,6 +12,7 @@ from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, InputFile
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 from dotenv import load_dotenv
+from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -68,13 +68,22 @@ async def command_start_handler(message: Message):
     conn.commit()
     conn.close()
 
-    kb = [[KeyboardButton(text="Русский"), KeyboardButton(text="English")]]
-    keyboard = ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True)
+    builder = ReplyKeyboardBuilder()
+    builder.add(types.KeyboardButton(text="Русский"))
+    builder.add(types.KeyboardButton(text="English"))
 
     text = _("Hello, {name}! Choose your language:", user_id=message.from_user.id).format(name=message.from_user.full_name)
-    await message.answer(text, reply_markup=keyboard)
+    await message.answer(text, reply_markup=builder.as_markup(resize_keyboard=True))
 
+@dp.message(lambda message: message.text)
+async def main_menu(message: Message):
+    builder = ReplyKeyboardBuilder()
+    builder.add(types.KeyboardButton(text=_("Upload")))
+    builder.add(types.KeyboardButton(text=_("Stats")))
+    text = _("Welcome to the club, buddy!")
+    await message.answer(text, reply_markup=builder.as_markup(resize_keyboard=True))
 
+# Call main_menu with the message object
 @dp.message(lambda message: message.text in ["English", "Русский"])
 async def set_language(message: Message):
     lang = "en" if message.text == "English" else "ru"
@@ -84,11 +93,16 @@ async def set_language(message: Message):
     conn.commit()
     conn.close()
     await message.answer(_("Language set to {lang}.", user_id=message.from_user.id).format(lang=message.text))
+    await main_menu(message)
 
 
 @dp.message(Command("upload"))
 async def upload_receipt(message: Message):
-    await message.answer(_("Please send your billing screenshot.", user_id=message.from_user.id))
+    kb = [[KeyboardButton(text=_("Upload"))]]
+    keyboard = ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True)
+
+    text = _("Please send your billing screenshot.", user_id=message.from_user.id)
+    await message.answer(text, reply_markup=keyboard)
 
 
 @dp.message(lambda message: message.photo)
