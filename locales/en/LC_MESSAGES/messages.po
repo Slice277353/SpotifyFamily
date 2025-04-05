@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-03-12 21:50+0200\n"
+"POT-Creation-Date: 2025-03-14 14:38+0200\n"
 "PO-Revision-Date: 2025-03-12 21:52+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,48 +18,61 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: bot.py:74
+#: bot.py:75
 #, python-brace-format
 msgid "Hello, {name}! Choose your language:"
 msgstr "Hello, {name}! Choose your language:"
 
-#: bot.py:87
+#: bot.py:98 bot.py:118
+msgid "Upload"
+msgstr ""
+
+#: bot.py:99
+#, fuzzy
+msgid "Stats"
+msgstr "User stats:\n"
+
+#: bot.py:100
+msgid "Welcome to the club, buddy!"
+msgstr ""
+
+#: bot.py:112
 #, python-brace-format
 msgid "Language set to {lang}."
 msgstr "Language set to {lang}."
 
-#: bot.py:92
+#: bot.py:121
 msgid "Please send your billing screenshot."
 msgstr "Please send your billing screenshot."
 
-#: bot.py:113
+#: bot.py:143
 #, python-brace-format
 msgid "Received your receipt, {name}. Your current debt: ${debt}"
 msgstr "Received your receipt, {name}. Your current debt: ${debt}"
 
-#: bot.py:124
+#: bot.py:154
 #, python-brace-format
 msgid "Your current debt: ${debt}"
 msgstr "Your current debt: ${debt}"
 
-#: bot.py:126
+#: bot.py:156
 msgid "No data found."
 msgstr "No data found."
 
-#: bot.py:137
+#: bot.py:167
 msgid "User stats:\n"
 msgstr "User stats:\n"
 
-#: bot.py:145
+#: bot.py:175
 msgid "Usage: /update_debt <user_id> <amount>"
 msgstr "Usage: /update_debt <user_id> <amount>"
 
-#: bot.py:153
+#: bot.py:183
 #, python-brace-format
 msgid "Updated debt for user {uid} by ${amt}"
 msgstr "Updated debt for user {uid} by ${amt}"
 
-#: bot.py:166
+#: bot.py:196
 #, python-brace-format
 msgid ""
 "Reminder: Your current debt is ${debt}. Please pay before the billing "
@@ -68,7 +81,7 @@ msgstr ""
 "Reminder: Your current debt is ${debt}. Please pay before the billing "
 "date."
 
-#: bot.py:169
+#: bot.py:199
 #, python-brace-format
 msgid "Thank you for your payment, {name}. Your debt is cleared."
 msgstr "Thank you for your payment, {name}. Your debt is cleared."
