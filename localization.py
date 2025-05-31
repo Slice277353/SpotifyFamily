@@ -13,7 +13,7 @@ i18n = I18n(path=config.LOCALES_DIR, default_locale=config.DEFAULT_LOCALE, domai
 #     """
 #     if event_from_user is None:
 #         return config.DEFAULT_LOCALE # Or handle anonymous users as needed
-
+#
 #     user_id = event_from_user.id
 #     locale = database.get_user_language(user_id) # Use your DB function
 #     # Ensure the locale exists in your i18n setup, otherwise fallback

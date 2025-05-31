@@ -9,9 +9,21 @@ def get_language_keyboard() -> types.ReplyKeyboardMarkup:
     builder.add(types.KeyboardButton(text="English"))
     return builder.as_markup(resize_keyboard=True, one_time_keyboard=True)
 
-def get_main_menu_keyboard(user_id: int) -> types.ReplyKeyboardMarkup:
+# def get_main_menu_keyboard(user_id: int) -> types.ReplyKeyboardMarkup:
+#     """Returns the main menu keyboard, translated for the user."""
+#     builder = ReplyKeyboardBuilder()
+#     builder.add(types.KeyboardButton(text=_("Upload", user_id=user_id)))
+#     builder.add(types.KeyboardButton(text=_("Stats", user_id=user_id)))
+#     return builder.as_markup(resize_keyboard=True)
+
+def get_start_keyboard() -> types.ReplyKeyboardMarkup:
+    builder = ReplyKeyboardBuilder()
+    builder.add(types.KeyboardButton(text="Start"))
+    return builder.as_markup(resize_keyboard=True, one_time_keyboard=True)
+
+def get_main_menu_keyboard(user_id: int) -> types.ReplyKeyboardMarkup | None:
     """Returns the main menu keyboard, translated for the user."""
     builder = ReplyKeyboardBuilder()
-    builder.add(types.KeyboardButton(text=_("Upload", user_id=user_id)))
+    builder.add(types.KeyboardButton(text=_("Upload")))
     builder.add(types.KeyboardButton(text=_("Stats", user_id=user_id)))
     return builder.as_markup(resize_keyboard=True)

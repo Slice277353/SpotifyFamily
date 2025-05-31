@@ -1,4 +1,3 @@
-
 import logging
 
 from aiogram import Router, Bot
@@ -7,6 +6,7 @@ from aiogram.types import Message
 
 import config
 import database
+from handlers.common import show_main_menu_options
 from localization import _
 
 admin_router = Router()
@@ -61,12 +61,15 @@ async def update_debt(message: Message, bot: Bot):
                     target_user_id,
                     _("An admin has updated your debt to ${debt}.", user_id=target_user_id).format(debt=f"{new_debt:.2f}")
                 )
+                await show_main_menu_options(message)
             except Exception as notify_err:
                 logging.warning(f"Could not notify user {target_user_id} about debt update: {notify_err}")
+                await show_main_menu_options(message)
         else:
             await message.answer(
                 _("User with ID {uid} not found or could not update debt.", user_id=admin_user_id).format(uid=target_user_id)
             )
+            await show_main_menu_options(message)
 
     except ValueError:
         await message.answer(_("Invalid user ID or amount. Please use numbers.", user_id=admin_user_id))

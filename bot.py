@@ -18,6 +18,9 @@ import config
 
 from scheduler import scheduler_loop
 
+
+
+
 async def main():
 
     database.init_db()
@@ -28,15 +31,11 @@ async def main():
     )
     dp = Dispatcher()
 
-    # --- Register Middlewares (Optional) ---
     dp.update.middleware(SimpleI18nMiddleware(i18n=i18n))
 
-    # --- Include Routers ---
-    # Access the router instances defined within the imported modules
-    dp.include_router(common.common_router) # Use common.common_router
-    dp.include_router(admin.admin_router)   # Use admin.admin_router
+    dp.include_router(common.common_router)
+    dp.include_router(admin.admin_router)
 
-    # --- Start Scheduler ---
     scheduler_task = asyncio.create_task(scheduler_loop(bot))
 
     logging.info("Starting bot polling...")

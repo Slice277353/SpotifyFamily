@@ -1,14 +1,15 @@
-# Translations template for PROJECT.
-# Copyright (C) 2025 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
+# Translations template for Bot Super Project.
+# Copyright (C) 2025 John Doe
+# This file is distributed under the same license as the Bot Super Project
+# project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-03-14 14:38+0200\n"
+"Project-Id-Version: Bot Super Project 0.1\n"
+"Report-Msgid-Bugs-To: john@doe-email.com\n"
+"POT-Creation-Date: 2025-05-31 19:34+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,68 +18,105 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: bot.py:75
-#, python-brace-format
-msgid "Hello, {name}! Choose your language:"
-msgstr ""
-
-#: bot.py:98 bot.py:118
+#: handlers/common.py:48 keyboards.py:15
 msgid "Upload"
 msgstr ""
 
-#: bot.py:99
+#: handlers/common.py:80 keyboards.py:16
 msgid "Stats"
 msgstr ""
 
-#: bot.py:100
-msgid "Welcome to the club, buddy!"
-msgstr ""
-
-#: bot.py:112
-#, python-brace-format
-msgid "Language set to {lang}."
-msgstr ""
-
-#: bot.py:121
-msgid "Please send your billing screenshot."
-msgstr ""
-
-#: bot.py:143
-#, python-brace-format
-msgid "Received your receipt, {name}. Your current debt: ${debt}"
-msgstr ""
-
-#: bot.py:154
-#, python-brace-format
-msgid "Your current debt: ${debt}"
-msgstr ""
-
-#: bot.py:156
-msgid "No data found."
-msgstr ""
-
-#: bot.py:167
-msgid "User stats:\n"
-msgstr ""
-
-#: bot.py:175
-msgid "Usage: /update_debt <user_id> <amount>"
-msgstr ""
-
-#: bot.py:183
-#, python-brace-format
-msgid "Updated debt for user {uid} by ${amt}"
-msgstr ""
-
-#: bot.py:196
+#: scheduler.py:25
 #, python-brace-format
 msgid ""
 "Reminder: Your current debt is ${debt}. Please pay before the billing "
 "date."
 msgstr ""
 
-#: bot.py:199
+#: handlers/admin.py:23 handlers/admin.py:42
+msgid "You are not authorized to use this command."
+msgstr ""
+
+#: handlers/admin.py:29
+msgid "No users found in the database."
+msgstr ""
+
+#: handlers/admin.py:32
+msgid "User stats:"
+msgstr ""
+
+#: handlers/admin.py:47
+msgid "Usage: /update_debt <user_telegram_id> <new_debt_amount>"
+msgstr ""
+
+#: handlers/admin.py:56
 #, python-brace-format
-msgid "Thank you for your payment, {name}. Your debt is cleared."
+msgid "Updated debt for user {uid} to ${amt}"
+msgstr ""
+
+#: handlers/admin.py:62
+#, python-brace-format
+msgid "An admin has updated your debt to ${debt}."
+msgstr ""
+
+#: handlers/admin.py:68
+#, python-brace-format
+msgid "User with ID {uid} not found or could not update debt."
+msgstr ""
+
+#: handlers/admin.py:72
+msgid "Invalid user ID or amount. Please use numbers."
+msgstr ""
+
+#: handlers/admin.py:75
+msgid "An unexpected error occurred."
+msgstr ""
+
+#: handlers/common.py:20
+msgid "Welcome to the club, buddy!"
+msgstr ""
+
+#: handlers/common.py:31
+#, python-brace-format
+msgid "Hello, {name}! Choose your language:"
+msgstr ""
+
+#: handlers/common.py:41
+#, python-brace-format
+msgid "Language set to {lang}."
+msgstr ""
+
+#: handlers/common.py:45
+msgid "Sorry, could not update language settings. Please try again."
+msgstr ""
+
+#: handlers/common.py:50
+msgid "Please send your billing screenshot."
+msgstr ""
+
+#: handlers/common.py:67
+msgid "N/A"
+msgstr ""
+
+#: handlers/common.py:70
+#, python-brace-format
+msgid "Received your receipt, {name}. Your current debt: ${debt}"
+msgstr ""
+
+#: handlers/common.py:74
+msgid "Sorry, there was an error saving your receipt information."
+msgstr ""
+
+#: handlers/common.py:78
+msgid "Sorry, there was an error processing your receipt."
+msgstr ""
+
+#: handlers/common.py:86
+#, python-brace-format
+msgid "Your current debt: ${debt}"
+msgstr ""
+
+#: handlers/common.py:88
+msgid "Could not retrieve your stats. Maybe try /start again?"
 msgstr ""
 
